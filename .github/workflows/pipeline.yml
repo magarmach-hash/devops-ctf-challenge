@@ -1,0 +1,22 @@
+name: Production CI
+on:
+  pull_request_target:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Build and Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Build Script
+        run: npm run build
+        env:
+          PROD_FLAG: ${{ secrets.PROD_FLAG }}
