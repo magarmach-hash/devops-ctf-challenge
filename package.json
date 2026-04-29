@@ -1,0 +1,11 @@
+{
+  "name": "devops-ctf-demo",
+  "version": "1.0.0",
+  "description": "Internal production application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "echo 'Running production build...'"
+  },
+  "dependencies": {}
+}
